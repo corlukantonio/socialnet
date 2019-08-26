@@ -15,7 +15,7 @@ router.post(
   [
     auth,
     [
-      check("text", "Text is required")
+      check("text", "Molimo unesite tekst")
         .not()
         .isEmpty()
     ]
@@ -41,7 +41,7 @@ router.post(
       res.json(post);
     } catch (err) {
       console.error(err.message);
-      res.status(500).send("Server Error");
+      res.status(500).send("Greška na serveru");
     }
   }
 );
@@ -55,7 +55,7 @@ router.get("/", auth, async (req, res) => {
     res.json(posts);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server Error");
+    res.status(500).send("Greška na serveru");
   }
 });
 
@@ -67,7 +67,7 @@ router.get("/:id", auth, async (req, res) => {
     const post = await Post.findById(req.params.id);
 
     if (!post) {
-      return res.status(404).json({ msg: "Post not found" });
+      return res.status(404).json({ msg: "Objava nije pronađena" });
     }
 
     res.json(post);
@@ -75,10 +75,10 @@ router.get("/:id", auth, async (req, res) => {
     console.error(err.message);
 
     if (err.kind === "ObjectId") {
-      return res.status(404).json({ msg: "Post not found" });
+      return res.status(404).json({ msg: "Objava nije pronađena" });
     }
 
-    res.status(500).send("Server Error");
+    res.status(500).send("Greška na serveru");
   }
 });
 
@@ -90,25 +90,25 @@ router.delete("/:id", auth, async (req, res) => {
     const post = await Post.findById(req.params.id);
 
     if (!post) {
-      return res.status(404).json({ msg: "Post not found" });
+      return res.status(404).json({ msg: "Objava nije pronađena" });
     }
 
     // Check user
     if (post.user.toString() !== req.user.id) {
-      return res.status(401).json({ msg: "User not authorized" });
+      return res.status(401).json({ msg: "Korisnik nije prijavljen" });
     }
 
     await post.remove();
 
-    res.json({ msg: "Post removed" });
+    res.json({ msg: "Objava izbrisana" });
   } catch (err) {
     console.error(err.message);
 
     // if (err.kind === "ObjectId") {
-    //   return res.status(404).json({ msg: "Post not found" });
+    //   return res.status(404).json({ msg: "Objava nije pronađena" });
     // }
 
-    res.status(500).send("Server Error");
+    res.status(500).send("Greška na serveru");
   }
 });
 
@@ -123,7 +123,9 @@ router.put("/like/:id", auth, async (req, res) => {
     if (
       post.likes.filter(like => like.user.toString() == req.user.id).length > 0
     ) {
-      return res.status(400).json({ msg: "Post already liked" });
+      return res
+        .status(400)
+        .json({ msg: 'Objava već označena oznakom "sviđa mi se"' });
     }
 
     post.likes.unshift({ user: req.user.id });
@@ -133,7 +135,7 @@ router.put("/like/:id", auth, async (req, res) => {
     res.json(post.likes);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server Error");
+    res.status(500).send("Greška na serveru");
   }
 });
 
@@ -149,7 +151,9 @@ router.put("/unlike/:id", auth, async (req, res) => {
       post.likes.filter(like => like.user.toString() == req.user.id).length ===
       0
     ) {
-      return res.status(400).json({ msg: "Post has not yet been liked" });
+      return res
+        .status(400)
+        .json({ msg: 'Objava nije označena oznakom "sviđa mi se"' });
     }
 
     // Get remove index
@@ -164,7 +168,7 @@ router.put("/unlike/:id", auth, async (req, res) => {
     res.json(post.likes);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server Error");
+    res.status(500).send("Greška na serveru");
   }
 });
 
@@ -176,7 +180,7 @@ router.post(
   [
     auth,
     [
-      check("text", "Text is required")
+      check("text", "Molimo unesite tekst")
         .not()
         .isEmpty()
     ]
@@ -205,7 +209,7 @@ router.post(
       res.json(post.comments);
     } catch (err) {
       console.error(err.message);
-      res.status(500).send("Server Error");
+      res.status(500).send("Greška na serveru");
     }
   }
 );
@@ -224,12 +228,12 @@ router.delete("/comment/:id/:comment_id", auth, async (req, res) => {
 
     // Make sure comment exists
     if (!comment) {
-      return res.status(404).json({ msg: "Comment does not exist" });
+      return res.status(404).json({ msg: "Komentar ne postoji" });
     }
 
     // Check user
     if (comment.user.toString() !== req.user.id) {
-      return res.status(400).json({ msg: "User not authorized" });
+      return res.status(400).json({ msg: "Korisnik nije prijavljen" });
     }
 
     // Get remove index
@@ -244,7 +248,7 @@ router.delete("/comment/:id/:comment_id", auth, async (req, res) => {
     res.json(post.comments);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server Error");
+    res.status(500).send("Greška na serveru");
   }
 });
 

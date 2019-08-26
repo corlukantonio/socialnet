@@ -20,13 +20,15 @@ router.get("/me", auth, async (req, res) => {
     );
 
     if (!profile) {
-      return res.status(400).json({ msg: "There is no profile for this user" });
+      return res
+        .status(400)
+        .json({ msg: "Ne postoji profil za ovog korisnika" });
     }
 
     res.json(profile);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server Error");
+    res.status(500).send("Greška na serveru");
   }
 });
 
@@ -38,10 +40,10 @@ router.post(
   [
     auth,
     [
-      check("status", "Status is required")
+      check("status", "Molimo unesite čime se bavite")
         .not()
         .isEmpty(),
-      check("skills", "Skills is required")
+      check("skills", "Molimo unesite vaše vještine")
         .not()
         .isEmpty()
     ]
@@ -109,7 +111,7 @@ router.post(
       res.json(profile);
     } catch (err) {
       console.error(err.message);
-      res.status(500).send("Server Error");
+      res.status(500).send("Greška na serveru");
     }
   }
 );
@@ -123,7 +125,7 @@ router.get("/", async (req, res) => {
     res.json(profiles);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server Error");
+    res.status(500).send("Greška na serveru");
   }
 });
 
@@ -136,15 +138,15 @@ router.get("/user/:user_id", async (req, res) => {
       user: req.params.user_id
     }).populate("user", ["name", "avatar"]);
 
-    if (!profile) return res.status(400).json({ msg: "Profile not found" });
+    if (!profile) return res.status(400).json({ msg: "Nepostojeći profil" });
 
     res.json(profile);
   } catch (err) {
     console.error(err.message);
     if (err.kind == "ObjectId") {
-      return res.status(400).json({ msg: "Profile not found" });
+      return res.status(400).json({ msg: "Nepostojeći profil" });
     }
-    res.status(500).send("Server Error");
+    res.status(500).send("Greška na serveru");
   }
 });
 
@@ -159,10 +161,10 @@ router.delete("/", auth, async (req, res) => {
     await Profile.findOneAndRemove({ user: req.user.id });
     // Remove user
     await User.findOneAndRemove({ _id: req.user.id });
-    res.json({ msg: "User deleted" });
+    res.json({ msg: "Korisnički račun izbrisan" });
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server Error");
+    res.status(500).send("Greška na serveru");
   }
 });
 
@@ -174,13 +176,13 @@ router.put(
   [
     auth,
     [
-      check("title", "Message is required")
+      check("title", "Molimo unesite poziciju")
         .not()
         .isEmpty(),
-      check("company", "Company is required")
+      check("company", "Molimo unesite tvrtku")
         .not()
         .isEmpty(),
-      check("from", "From date is required")
+      check("from", "Molimo unesite od datum")
         .not()
         .isEmpty()
     ]
@@ -221,7 +223,7 @@ router.put(
       res.json(profile);
     } catch (err) {
       console.error(err.message);
-      res.status(500).send("Server Error");
+      res.status(500).send("Greška na serveru");
     }
   }
 );
@@ -245,7 +247,7 @@ router.delete("/experience/:exp_id", auth, async (req, res) => {
     res.json(profile);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server Error");
+    res.status(500).send("Greška na serveru");
   }
 });
 
@@ -257,16 +259,16 @@ router.put(
   [
     auth,
     [
-      check("school", "School is required")
+      check("school", "Molimo unesite školu / fakultet")
         .not()
         .isEmpty(),
-      check("degree", "Degree is required")
+      check("degree", "Molimo unesite stupanj")
         .not()
         .isEmpty(),
-      check("fieldofstudy", "Field of study is required")
+      check("fieldofstudy", "Molimo unesite smjer")
         .not()
         .isEmpty(),
-      check("from", "From date is required")
+      check("from", "Molimo unesite od datum")
         .not()
         .isEmpty()
     ]
@@ -307,7 +309,7 @@ router.put(
       res.json(profile);
     } catch (err) {
       console.error(err.message);
-      res.status(500).send("Server Error");
+      res.status(500).send("Greška na serveru");
     }
   }
 );
@@ -331,7 +333,7 @@ router.delete("/education/:edu_id", auth, async (req, res) => {
     res.json(profile);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server Error");
+    res.status(500).send("Greška na serveru");
   }
 });
 
@@ -354,14 +356,14 @@ router.get("/github/:username", (req, res) => {
       if (error) console.error(error);
 
       if (response.statusCode != 200) {
-        return res.status(404).json({ msg: "No Github profile found" });
+        return res.status(404).json({ msg: "Nije pronađen Github profil" });
       }
 
       res.json(JSON.parse(body));
     });
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server Error");
+    res.status(500).send("Greška na serveru");
   }
 });
 

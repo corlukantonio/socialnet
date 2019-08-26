@@ -82,7 +82,7 @@ export const createProfile = (
       payload: res.data
     });
 
-    dispatch(setAlert(edit ? "Profil uređen" : "Profile Created", "success"));
+    dispatch(setAlert(edit ? "Profil uređen" : "Profil izrađen", "success"));
 
     if (!edit) {
       history.push("/dashboard");
