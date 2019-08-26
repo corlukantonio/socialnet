@@ -27,35 +27,31 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <Fragment>
-      <h1 className='large text-primary'>Sign In</h1>
-      <p className='lead'>
-        <i className='fas fa-user' /> Sign In Your Account
-      </p>
+      <h1 className='large text-primary'>Prijavi se</h1>
       <form className='form' onSubmit={e => onSubmit(e)}>
         <div className='form-group'>
           <input
             type='email'
-            placeholder='Email Address'
+            placeholder='Email'
             name='email'
             value={email}
             onChange={e => onChange(e)}
-            required
           />
         </div>
         <div className='form-group'>
           <input
             type='password'
-            placeholder='Password'
+            placeholder='Lozinka'
             name='password'
             value={password}
             onChange={e => onChange(e)}
-            minLength='6'
           />
         </div>
-        <input type='submit' className='btn btn-primary' value='Login' />
+        <input type='submit' className='btn btn-primary' value='Prijavi se' />
       </form>
       <p className='my-1'>
-        Don't have an account? <Link to='/register'>Sign Up</Link>
+        Još nemaš svoj korisnički račun?{" "}
+        <Link to='/register'>Registriraj se</Link>
       </p>
     </Fragment>
   );

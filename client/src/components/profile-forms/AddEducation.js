@@ -32,12 +32,8 @@ const AddEducation = ({ addEducation, history }) => {
 
   return (
     <Fragment>
-      <h1 class='large text-primary'>Add Your Education</h1>
-      <p class='lead'>
-        <i class='fas fa-code-branch' /> Add any school or bootcamp that you
-        have attended
-      </p>
-      <small>* = required field</small>
+      <h1 class='large text-primary'>Dodaj obrazovanje</h1>
+      <small>* = obavezno polje</small>
       <form
         class='form'
         onSubmit={e => {
@@ -48,7 +44,7 @@ const AddEducation = ({ addEducation, history }) => {
         <div class='form-group'>
           <input
             type='text'
-            placeholder='* School or Bootcamp'
+            placeholder='* Škola / Fakultet'
             name='school'
             value={school}
             onChange={e => onChange(e)}
@@ -58,7 +54,7 @@ const AddEducation = ({ addEducation, history }) => {
         <div class='form-group'>
           <input
             type='text'
-            placeholder='* Degree or Certificate'
+            placeholder='* Stupanj obrazovanja'
             name='degree'
             value={degree}
             onChange={e => onChange(e)}
@@ -68,14 +64,14 @@ const AddEducation = ({ addEducation, history }) => {
         <div class='form-group'>
           <input
             type='text'
-            placeholder='Field of Study'
+            placeholder='Područje'
             name='fieldofstudy'
             value={fieldofstudy}
             onChange={e => onChange(e)}
           />
         </div>
         <div class='form-group'>
-          <h4>From Date</h4>
+          <h4>Od</h4>
           <input
             type='date'
             name='from'
@@ -88,6 +84,7 @@ const AddEducation = ({ addEducation, history }) => {
             <input
               type='checkbox'
               name='current'
+              id='current'
               checked={current}
               value={current}
               onChange={e => {
@@ -95,11 +92,11 @@ const AddEducation = ({ addEducation, history }) => {
                 toggleDisabled(!toDateDisabled);
               }}
             />{" "}
-            Current School
+            <label for='current'>Trenutna škola / fakultet</label>
           </p>
         </div>
         <div class='form-group'>
-          <h4>To Date</h4>
+          <h4>Do</h4>
           <input
             type='date'
             name='to'
@@ -113,14 +110,14 @@ const AddEducation = ({ addEducation, history }) => {
             name='description'
             cols='30'
             rows='5'
-            placeholder='Program Description'
+            placeholder='Opis'
             value={description}
             onChange={e => onChange(e)}
           />
         </div>
-        <input type='submit' class='btn btn-primary my-1' />
+        <input type='submit' value='Spremi' class='btn btn-primary my-1' />
         <Link class='btn btn-light my-1' to='/dashboard'>
-          Go Back
+          Natrag
         </Link>
       </form>
     </Fragment>

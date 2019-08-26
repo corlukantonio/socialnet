@@ -24,12 +24,8 @@ const AddExperience = ({ addExperience, history }) => {
 
   return (
     <Fragment>
-      <h1 class='large text-primary'>Add An Experience</h1>
-      <p class='lead'>
-        <i class='fas fa-code-branch' /> Add any developer/programming positions
-        that you have had in the past
-      </p>
-      <small>* = required field</small>
+      <h1 class='large text-primary'>Dodaj iskustvo</h1>
+      <small>* = obavezno polje</small>
       <form
         class='form'
         onSubmit={e => {
@@ -40,7 +36,7 @@ const AddExperience = ({ addExperience, history }) => {
         <div class='form-group'>
           <input
             type='text'
-            placeholder='* Job Title'
+            placeholder='* Naziv posla'
             name='title'
             value={title}
             onChange={e => onChange(e)}
@@ -50,7 +46,7 @@ const AddExperience = ({ addExperience, history }) => {
         <div class='form-group'>
           <input
             type='text'
-            placeholder='* Company'
+            placeholder='* Tvrtka'
             name='company'
             value={company}
             onChange={e => onChange(e)}
@@ -60,14 +56,14 @@ const AddExperience = ({ addExperience, history }) => {
         <div class='form-group'>
           <input
             type='text'
-            placeholder='Location'
+            placeholder='Lokacija'
             name='location'
             value={location}
             onChange={e => onChange(e)}
           />
         </div>
         <div class='form-group'>
-          <h4>From Date</h4>
+          <h4>Od</h4>
           <input
             type='date'
             name='from'
@@ -80,6 +76,7 @@ const AddExperience = ({ addExperience, history }) => {
             <input
               type='checkbox'
               name='current'
+              id='current'
               checked={current}
               value={current}
               onChange={e => {
@@ -87,11 +84,11 @@ const AddExperience = ({ addExperience, history }) => {
                 toggleDisabled(!toDateDisabled);
               }}
             />{" "}
-            Current Job
+            <label for='current'>Trenutni posao</label>
           </p>
         </div>
         <div class='form-group'>
-          <h4>To Date</h4>
+          <h4>Do</h4>
           <input
             type='date'
             name='to'
@@ -105,14 +102,14 @@ const AddExperience = ({ addExperience, history }) => {
             name='description'
             cols='30'
             rows='5'
-            placeholder='Job Description'
+            placeholder='Opis posla'
             value={description}
             onChange={e => onChange(e)}
           />
         </div>
-        <input type='submit' class='btn btn-primary my-1' />
+        <input type='submit' value='Spremi' class='btn btn-primary my-1' />
         <Link class='btn btn-light my-1' to='/dashboard'>
-          Go Back
+          Natrag
         </Link>
       </form>
     </Fragment>

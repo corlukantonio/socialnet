@@ -14,13 +14,13 @@ const User = require("../../models/User");
 router.post(
   "/",
   [
-    check("name", "Name is required")
+    check("name", "Molimo da unesete ime i prezime")
       .not()
       .isEmpty(),
-    check("email", "Please include a valid email").isEmail(),
+    check("email", "Molimo da ispravno unesete email adresu").isEmail(),
     check(
       "password",
-      "Please enter a password with 6 or more characters"
+      "Molimo da unesete lozinku sa 6 ili više znakova"
     ).isLength({ min: 6 })
   ],
   async (req, res) => {
@@ -38,7 +38,7 @@ router.post(
       if (user) {
         return res
           .status(400)
-          .json({ errors: [{ msg: "User already exists" }] });
+          .json({ errors: [{ msg: "Korisnik već postoji" }] });
       }
 
       // Get users gravatar
@@ -80,7 +80,7 @@ router.post(
       );
     } catch (err) {
       console.error(err.message);
-      res.status(500).send("Server error");
+      res.status(500).send("Greška na serveru");
     }
   }
 );

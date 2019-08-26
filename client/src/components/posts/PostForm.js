@@ -9,7 +9,7 @@ const PostForm = ({ addPost }) => {
   return (
     <div class='post-form'>
       <div class='bg-primary p'>
-        <h3>Say Something...</h3>
+        <h3>Napiši nešto zanimljivo...</h3>
       </div>
       <form
         class='form my-1'
@@ -23,12 +23,12 @@ const PostForm = ({ addPost }) => {
           name='text'
           cols='30'
           rows='5'
-          placeholder='Create a post'
+          placeholder='Izradi objavu'
           value={text}
           onChange={e => setText(e.target.value)}
           required
         />
-        <input type='submit' class='btn btn-dark my-1' value='Submit' />
+        <input type='submit' class='btn btn-primary my-1' value='Spremi' />
       </form>
     </div>
   );

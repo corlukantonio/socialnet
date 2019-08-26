@@ -72,98 +72,82 @@ const EditProfile = ({
 
   return (
     <Fragment>
-      <h1 className='large text-primary'>Create Your Profile</h1>
+      <h1 className='large text-primary'>Uredi profil</h1>
       <p className='lead'>
-        <i className='fas fa-user' /> Let's get some information to make your
-        profile stand out
+        <i className='fas fa-user' /> Dodaj neke informacije o sebi
       </p>
-      <small>* = required field</small>
+      <small>* = obavezno polje</small>
       <form className='form' onSubmit={e => onSubmit(e)}>
         <div className='form-group'>
-          <select name='status' value={status} onChange={e => onChange(e)}>
-            <option value='0'>* Select Professional Status</option>
-            <option value='Developer'>Developer</option>
-            <option value='Junior Developer'>Junior Developer</option>
-            <option value='Senior Developer'>Senior Developer</option>
-            <option value='Manager'>Manager</option>
-            <option value='Student or Learning'>Student or Learning</option>
-            <option value='Instructor'>Instructor or Teacher</option>
-            <option value='Intern'>Intern</option>
-            <option value='Other'>Other</option>
-          </select>
+          <input
+            type='text'
+            placeholder='* Čime se baviš'
+            name='status'
+            value={status}
+            onChange={e => onChange(e)}
+          />
+
           <small className='form-text'>
-            Give us an idea of where you are at in your career
+            Čime se trenutno baviš, koji je tvoj položaj ukoliko si zaposlen
           </small>
         </div>
         <div className='form-group'>
           <input
             type='text'
-            placeholder='Company'
+            placeholder='Tvrtka / fakultet / škola'
             name='company'
             value={company}
             onChange={e => onChange(e)}
           />
           <small className='form-text'>
-            Could be your own company or one you work for
+            Tvrtka u kojoj si zaposlen, tvrtka koju vodiš, fakultet, škola
           </small>
         </div>
         <div className='form-group'>
           <input
             type='text'
-            placeholder='Website'
+            placeholder='Web stranica'
             name='website'
             value={website}
             onChange={e => onChange(e)}
           />
           <small className='form-text'>
-            Could be your own or a company website
+            Vlastita web stranica, web stranica tvrtke
           </small>
         </div>
         <div className='form-group'>
           <input
             type='text'
-            placeholder='Location'
+            placeholder='Lokacija'
             name='location'
             value={location}
             onChange={e => onChange(e)}
           />
           <small className='form-text'>
-            City & state suggested (eg. Boston, MA)
+            Grad i država u kojoj živiš (npr. Varaždin, Hrvatska)
           </small>
         </div>
         <div className='form-group'>
           <input
             type='text'
-            placeholder='* Skills'
+            placeholder='* Vještine'
             name='skills'
             value={skills}
             onChange={e => onChange(e)}
           />
           <small className='form-text'>
-            Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)
-          </small>
-        </div>
-        <div className='form-group'>
-          <input
-            type='text'
-            placeholder='Github Username'
-            name='githubusername'
-            value={githubusername}
-            onChange={e => onChange(e)}
-          />
-          <small className='form-text'>
-            If you want your latest repos and a Github link, include your
-            username
+            Koristi zareze za navođenje više vještina (npr. Photoshop, Web
+            programiranje)
           </small>
         </div>
         <div className='form-group'>
           <textarea
-            placeholder='A short bio of yourself'
+            placeholder='Kratka biografija'
             name='bio'
             value={bio}
             onChange={e => onChange(e)}
           />
-          <small className='form-text'>Tell us a little about yourself</small>
+          <small className='form-text'>Napiši nešto više o sebi</small>
         </div>
 
         <div className='my-2'>
@@ -172,9 +156,8 @@ const EditProfile = ({
             type='button'
             className='btn btn-light'
           >
-            Add Social Network Links
+            Ostale društvene mreže
           </button>
-          <span>Optional</span>
         </div>
 
         {displaySocialInputs && (
@@ -236,9 +219,9 @@ const EditProfile = ({
           </Fragment>
         )}
 
-        <input type='submit' className='btn btn-primary my-1' />
+        <input type='submit' value='Spremi' className='btn btn-primary my-1' />
         <Link className='btn btn-light my-1' to='/dashboard'>
-          Go Back
+          Natrag
         </Link>
       </form>
     </Fragment>

@@ -21,7 +21,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   const onSubmit = async e => {
     e.preventDefault();
     if (password !== password2) {
-      setAlert("Passwords do not match", "danger");
+      setAlert("Lozinke se ne podudaraju", "danger");
     } else {
       register({ name, email, password });
     }
@@ -34,15 +34,12 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
   return (
     <Fragment>
-      <h1 className='large text-primary'>Sign Up</h1>
-      <p className='lead'>
-        <i className='fas fa-user' /> Create Your Account
-      </p>
+      <h1 className='large text-primary'>Registriraj se</h1>
       <form className='form' onSubmit={e => onSubmit(e)}>
         <div className='form-group'>
           <input
             type='text'
-            placeholder='Name'
+            placeholder='Ime i prezime'
             name='name'
             value={name}
             onChange={e => onChange(e)}
@@ -52,21 +49,25 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         <div className='form-group'>
           <input
             type='email'
-            placeholder='Email Address'
+            placeholder='Email'
             name='email'
             value={email}
             onChange={e => onChange(e)}
             // required
           />
           <small className='form-text'>
-            This site uses Gravatar so if you want a profile image, use a
-            Gravatar email
+            Ova stranica koristi Gravatar, stoga ako želite imati profilnu
+            fotografiju koristite{" "}
+            <a href='https://en.gravatar.com' target='_blank'>
+              Gravatar
+            </a>{" "}
+            email.
           </small>
         </div>
         <div className='form-group'>
           <input
             type='password'
-            placeholder='Password'
+            placeholder='Lozinka'
             name='password'
             value={password}
             onChange={e => onChange(e)}
@@ -76,17 +77,21 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         <div className='form-group'>
           <input
             type='password'
-            placeholder='Confirm Password'
+            placeholder='Potvrdi lozinku'
             name='password2'
             value={password2}
             onChange={e => onChange(e)}
             // minLength='6'
           />
         </div>
-        <input type='submit' className='btn btn-primary' value='Register' />
+        <input
+          type='submit'
+          className='btn btn-primary'
+          value='Registriraj se'
+        />
       </form>
       <p className='my-1'>
-        Already have an account? <Link to='/login'>Sign In</Link>
+        Imaš svoj korisnički račun? <Link to='/login'>Prijavi se</Link>
       </p>
     </Fragment>
   );

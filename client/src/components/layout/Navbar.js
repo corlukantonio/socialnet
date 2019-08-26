@@ -8,21 +8,21 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <ul>
       <li>
-        <Link to='/profiles'>Developers</Link>
+        <Link to='/profiles'>Pretraži</Link>
       </li>
       <li>
-        <Link to='/posts'>Posts</Link>
+        <Link to='/posts'>Objave</Link>
       </li>
       <li>
         <Link to='/dashboard'>
           <i className='fas fa-user' />{" "}
-          <span className='hide-sm'>Dashboard</span>
+          <span className='hide-sm'>Kontrolna ploča</span>
         </Link>
       </li>
       <li>
         <a onClick={logout} href='#!'>
           <i className='fas fa-sign-out-alt' />{" "}
-          <span className='hide-sm'>Logout</span>
+          <span className='hide-sm'>Odjavi se</span>
         </a>
       </li>
     </ul>
@@ -31,23 +31,21 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestLinks = (
     <ul>
       <li>
-        <Link to='/profiles'>Developers</Link>
+        <Link to='/profiles'>Pretraži</Link>
       </li>
       <li>
-        <Link to='/register'>Register</Link>
+        <Link to='/register'>Registriraj se</Link>
       </li>
       <li>
-        <Link to='/login'>Login</Link>
+        <Link to='/login'>Prijavi se</Link>
       </li>
     </ul>
   );
 
   return (
-    <nav className='navbar bg-dark'>
+    <nav className='navbar bg-light'>
       <h1>
-        <Link to='/'>
-          <i className='fas fa-code' /> DevConnector
-        </Link>
+        <Link to='/'>socialnet</Link>
       </h1>
       {!loading && (
         <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>

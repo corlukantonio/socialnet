@@ -12,7 +12,7 @@ const Education = ({ education, deleteEducation }) => {
       <td>
         <Moment format='YYYY/MM/DD'>{edu.from}</Moment> -{" "}
         {edu.to === null ? (
-          " Now"
+          " Trenutno"
         ) : (
           <Moment format='YYYY/MM/DD'>{edu.to}</Moment>
         )}
@@ -22,7 +22,7 @@ const Education = ({ education, deleteEducation }) => {
           onClick={() => deleteEducation(edu._id)}
           className='btn btn-danger'
         >
-          Delete
+          Izbriši
         </button>
       </td>
     </tr>
@@ -30,13 +30,13 @@ const Education = ({ education, deleteEducation }) => {
 
   return (
     <Fragment>
-      <h2 className='my-2'>Education Credentials</h2>
+      <h2 className='my-2'>Obrazovanje</h2>
       <table className='table'>
         <thead>
           <tr>
-            <th>School</th>
-            <th className='hide-sm'>Degree</th>
-            <th className='hide-sm'>Years</th>
+            <th>Škola / Fakultet</th>
+            <th className='hide-sm'>Stupanj obrazovanja</th>
+            <th className='hide-sm'>Godine</th>
             <th />
           </tr>
         </thead>

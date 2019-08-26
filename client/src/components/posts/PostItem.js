@@ -23,7 +23,8 @@ const PostItem = ({
     <div>
       <p class='my-1'>{text}</p>
       <p class='post-date'>
-        Posted on <Moment format='YYYY/MM/DD'>{date}</Moment>
+        Objavljeno <Moment format='DD.MM.YYYY'>{date}</Moment> u{" "}
+        <Moment format='hh:mm'>{date}</Moment>
       </p>
       {showActions && (
         <Fragment>
@@ -43,7 +44,7 @@ const PostItem = ({
             <i class='fas fa-thumbs-down' />
           </button>
           <Link to={`/posts/${_id}`} class='btn btn-primary'>
-            Discussion{" "}
+            Rasprava{" "}
             {comments.length > 0 && (
               <span class='comment-count'>{comments.length}</span>
             )}
