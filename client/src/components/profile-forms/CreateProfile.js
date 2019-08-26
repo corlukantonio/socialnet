@@ -11,7 +11,6 @@ const CreateProfile = ({ createProfile, history }) => {
     location: "",
     status: "",
     skills: "",
-    githubusername: "",
     bio: "",
     twitter: "",
     facebook: "",
@@ -28,7 +27,6 @@ const CreateProfile = ({ createProfile, history }) => {
     location,
     status,
     skills,
-    githubusername,
     bio,
     twitter,
     facebook,
@@ -62,7 +60,7 @@ const CreateProfile = ({ createProfile, history }) => {
             onChange={e => onChange(e)}
           />
           <small className='form-text'>
-            Čime se trenutno baviš, koji je tvoj položaj ukoliko si zaposlen
+            Čime se trenutno baviš, koja je tvoja pozicija ukoliko si zaposlen
           </small>
         </div>
         <div className='form-group'>

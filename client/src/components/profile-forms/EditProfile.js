@@ -16,7 +16,6 @@ const EditProfile = ({
     location: "",
     status: "",
     skills: "",
-    githubusername: "",
     bio: "",
     twitter: "",
     facebook: "",
@@ -36,8 +35,6 @@ const EditProfile = ({
       location: loading || !profile.location ? "" : profile.location,
       status: loading || !profile.status ? "" : profile.status,
       skills: loading || !profile.skills ? "" : profile.skills.join(","),
-      githubusername:
-        loading || !profile.githubusername ? "" : profile.githubusername,
       bio: loading || !profile.bio ? "" : profile.bio,
       twitter: loading || !profile.social ? "" : profile.social.twitter,
       facebook: loading || !profile.social ? "" : profile.social.facebook,
@@ -45,6 +42,7 @@ const EditProfile = ({
       youtube: loading || !profile.social ? "" : profile.social.youtube,
       instagram: loading || !profile.social ? "" : profile.social.instagram
     });
+    // eslint-disable-next-line
   }, [loading, getCurrentProfile]);
 
   const {
@@ -53,7 +51,6 @@ const EditProfile = ({
     location,
     status,
     skills,
-    githubusername,
     bio,
     twitter,
     facebook,
@@ -88,7 +85,7 @@ const EditProfile = ({
           />
 
           <small className='form-text'>
-            Čime se trenutno baviš, koji je tvoj položaj ukoliko si zaposlen
+            Čime se trenutno baviš, koja je tvoja pozicija ukoliko si zaposlen
           </small>
         </div>
         <div className='form-group'>

@@ -7,7 +7,6 @@ import ProfileTop from "./ProfileTop";
 import ProfileAbout from "./ProfileAbout";
 import ProfileExperience from "./ProfileExperience";
 import ProfileEducation from "./ProfileEducation";
-import ProfileGithub from "./ProfileGithub";
 import { getProfileById } from "../../actions/profile";
 
 const Profile = ({
@@ -18,7 +17,7 @@ const Profile = ({
 }) => {
   useEffect(() => {
     getProfileById(match.params.id);
-  }, [getProfileById]);
+  }, [getProfileById, match.params.id]);
 
   return (
     <Fragment>
@@ -51,7 +50,7 @@ const Profile = ({
                   ))}
                 </Fragment>
               ) : (
-                <h4>No experience credentials</h4>
+                <h4>Bez radnog iskustva</h4>
               )}
             </div>
             <div className='profile-edu bg-white p-2'>
@@ -66,13 +65,9 @@ const Profile = ({
                   ))}
                 </Fragment>
               ) : (
-                <h4>No education credentials</h4>
+                <h4>Bez obrazovanja</h4>
               )}
             </div>
-
-            {profile.githubusername && (
-              <ProfileGithub username={profile.githubusername} />
-            )}
           </div>
         </Fragment>
       )}

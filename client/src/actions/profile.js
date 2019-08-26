@@ -6,8 +6,7 @@ import {
   PROFILE_ERROR,
   UPDATE_PROFILE,
   CLEAR_PROFILE,
-  ACCOUNT_DELETED,
-  GET_REPOS
+  ACCOUNT_DELETED
 } from "./types";
 
 // Get current users profile
@@ -63,23 +62,6 @@ export const getProfileById = userId => async dispatch => {
   }
 };
 
-// Get Github repos
-export const getGithubRepos = username => async dispatch => {
-  try {
-    const res = await axios.get(`/api/profile/github/${username}`);
-
-    dispatch({
-      type: GET_REPOS,
-      payload: res.data
-    });
-  } catch (err) {
-    dispatch({
-      type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
-    });
-  }
-};
-
 // Create or update profile
 export const createProfile = (
   formData,
@@ -100,7 +82,7 @@ export const createProfile = (
       payload: res.data
     });
 
-    dispatch(setAlert(edit ? "Profile Updated" : "Profile Created", "success"));
+    dispatch(setAlert(edit ? "Profil uređen" : "Profile Created", "success"));
 
     if (!edit) {
       history.push("/dashboard");
@@ -135,7 +117,7 @@ export const addExperience = (formData, history) => async dispatch => {
       payload: res.data
     });
 
-    dispatch(setAlert("Experience Added", "success"));
+    dispatch(setAlert("Radno iskustvo dodano", "success"));
 
     history.push("/dashboard");
   } catch (err) {
@@ -168,7 +150,7 @@ export const addEducation = (formData, history) => async dispatch => {
       payload: res.data
     });
 
-    dispatch(setAlert("Education Added", "success"));
+    dispatch(setAlert("Obrazovanje dodano", "success"));
 
     history.push("/dashboard");
   } catch (err) {
@@ -195,7 +177,7 @@ export const deleteExperience = id => async dispatch => {
       payload: res.data
     });
 
-    dispatch(setAlert("Experience Removed", "success"));
+    dispatch(setAlert("Radno iskustvo izbrisano", "success"));
   } catch (err) {
     dispatch({
       type: PROFILE_ERROR,
@@ -214,7 +196,7 @@ export const deleteEducation = id => async dispatch => {
       payload: res.data
     });
 
-    dispatch(setAlert("Education Removed", "success"));
+    dispatch(setAlert("Obrazovanje izbrisano", "success"));
   } catch (err) {
     dispatch({
       type: PROFILE_ERROR,
@@ -225,7 +207,7 @@ export const deleteEducation = id => async dispatch => {
 
 // Delete account & profile
 export const deleteAccount = () => async dispatch => {
-  if (window.confirm("Are you sure? This can NOT be undone!")) {
+  if (window.confirm("Jeste li sigurni?")) {
     try {
       await axios.delete(`/api/profile`);
 
@@ -233,7 +215,7 @@ export const deleteAccount = () => async dispatch => {
 
       dispatch({ type: ACCOUNT_DELETED });
 
-      dispatch(setAlert("Your account has been permanantly deleted"));
+      dispatch(setAlert("Vaš korisnički račun je izbrisan!"));
     } catch (err) {
       dispatch({
         type: PROFILE_ERROR,

@@ -10,11 +10,11 @@ const Education = ({ education, deleteEducation }) => {
       <td>{edu.school}</td>
       <td className='hide-sm'>{edu.degree}</td>
       <td>
-        <Moment format='YYYY/MM/DD'>{edu.from}</Moment> -{" "}
+        <Moment format='DD.MM.YYYY'>{edu.from}</Moment> -{" "}
         {edu.to === null ? (
           " Trenutno"
         ) : (
-          <Moment format='YYYY/MM/DD'>{edu.to}</Moment>
+          <Moment format='DD.MM.YYYY'>{edu.to}</Moment>
         )}
       </td>
       <td>
@@ -35,8 +35,8 @@ const Education = ({ education, deleteEducation }) => {
         <thead>
           <tr>
             <th>Škola / Fakultet</th>
-            <th className='hide-sm'>Stupanj obrazovanja</th>
-            <th className='hide-sm'>Godine</th>
+            <th className='hide-sm'>Stupanj</th>
+            <th className='hide-sm'>Trajanje</th>
             <th />
           </tr>
         </thead>

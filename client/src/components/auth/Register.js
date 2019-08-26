@@ -58,7 +58,11 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
           <small className='form-text'>
             Ova stranica koristi Gravatar, stoga ako želite imati profilnu
             fotografiju koristite{" "}
-            <a href='https://en.gravatar.com' target='_blank'>
+            <a
+              href='https://en.gravatar.com'
+              rel='noopener noreferrer'
+              target='_blank'
+            >
               Gravatar
             </a>{" "}
             email.

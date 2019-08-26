@@ -24,7 +24,7 @@ const AddExperience = ({ addExperience, history }) => {
 
   return (
     <Fragment>
-      <h1 class='large text-primary'>Dodaj iskustvo</h1>
+      <h1 class='large text-primary'>Dodaj radno iskustvo</h1>
       <small>* = obavezno polje</small>
       <form
         class='form'
@@ -36,7 +36,7 @@ const AddExperience = ({ addExperience, history }) => {
         <div class='form-group'>
           <input
             type='text'
-            placeholder='* Naziv posla'
+            placeholder='* Pozicija'
             name='title'
             value={title}
             onChange={e => onChange(e)}

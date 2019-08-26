@@ -72,7 +72,7 @@ export const deletePost = postId => async dispatch => {
       payload: postId
     });
 
-    dispatch(setAlert("Post Removed", "success"));
+    dispatch(setAlert("Objava izbrisana", "success"));
   } catch (err) {
     dispatch({
       type: POST_ERROR,
@@ -97,7 +97,7 @@ export const addPost = formData => async dispatch => {
       payload: res.data
     });
 
-    dispatch(setAlert("Post Created", "success"));
+    dispatch(setAlert("Objava izrađena", "success"));
   } catch (err) {
     dispatch({
       type: POST_ERROR,
@@ -143,7 +143,7 @@ export const addComment = (postId, formData) => async dispatch => {
       payload: res.data
     });
 
-    dispatch(setAlert("Comment Added", "success"));
+    dispatch(setAlert("Komentar izrađen", "success"));
   } catch (err) {
     dispatch({
       type: POST_ERROR,
@@ -155,14 +155,14 @@ export const addComment = (postId, formData) => async dispatch => {
 // Delete comment
 export const deleteComment = (postId, commentId) => async dispatch => {
   try {
-    const res = await axios.delete(`/api/posts/comment/${postId}/${commentId}`);
+    await axios.delete(`/api/posts/comment/${postId}/${commentId}`);
 
     dispatch({
       type: REMOVE_COMMENT,
       payload: commentId
     });
 
-    dispatch(setAlert("Comment Removed", "success"));
+    dispatch(setAlert("Komentar izbrisan", "success"));
   } catch (err) {
     dispatch({
       type: POST_ERROR,

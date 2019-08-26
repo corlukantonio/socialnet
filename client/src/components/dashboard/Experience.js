@@ -10,11 +10,11 @@ const Experience = ({ experience, deleteExperience }) => {
       <td>{exp.company}</td>
       <td className='hide-sm'>{exp.title}</td>
       <td>
-        <Moment format='YYYY/MM/DD'>{exp.from}</Moment> -{" "}
+        <Moment format='DD.MM.YYYY'>{exp.from}</Moment> -{" "}
         {exp.to === null ? (
           " Trenutno"
         ) : (
-          <Moment format='YYYY/MM/DD'>{exp.to}</Moment>
+          <Moment format='DD.MM.YYYY'>{exp.to}</Moment>
         )}
       </td>
       <td>
@@ -30,13 +30,13 @@ const Experience = ({ experience, deleteExperience }) => {
 
   return (
     <Fragment>
-      <h2 className='my-2'>Iskustvo</h2>
+      <h2 className='my-2'>Radno iskustvo</h2>
       <table className='table'>
         <thead>
           <tr>
             <th>Tvrtka</th>
-            <th className='hide-sm'>Naziv posla</th>
-            <th className='hide-sm'>Godine</th>
+            <th className='hide-sm'>Pozicija</th>
+            <th className='hide-sm'>Trajanje</th>
             <th />
           </tr>
         </thead>
