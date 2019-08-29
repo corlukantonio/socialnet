@@ -11,23 +11,6 @@ import {
   REMOVE_COMMENT
 } from "./types";
 
-// Get posts
-export const getPosts = () => async dispatch => {
-  try {
-    const res = await axios.get("/api/posts");
-
-    dispatch({
-      type: GET_POSTS,
-      payload: res.data
-    });
-  } catch (err) {
-    dispatch({
-      type: POST_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
-    });
-  }
-};
-
 // Add like
 export const addLike = postId => async dispatch => {
   try {
@@ -62,25 +45,6 @@ export const removeLike = postId => async dispatch => {
   }
 };
 
-// Delete post
-export const deletePost = postId => async dispatch => {
-  try {
-    await axios.delete(`/api/posts/${postId}`);
-
-    dispatch({
-      type: DELETE_POST,
-      payload: postId
-    });
-
-    dispatch(setAlert("Objava izbrisana", "success"));
-  } catch (err) {
-    dispatch({
-      type: POST_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
-    });
-  }
-};
-
 // Add post
 export const addPost = formData => async dispatch => {
   const config = {
@@ -106,6 +70,25 @@ export const addPost = formData => async dispatch => {
   }
 };
 
+// Delete post
+export const deletePost = postId => async dispatch => {
+  try {
+    await axios.delete(`/api/posts/${postId}`);
+
+    dispatch({
+      type: DELETE_POST,
+      payload: postId
+    });
+
+    dispatch(setAlert("Objava izbrisana", "success"));
+  } catch (err) {
+    dispatch({
+      type: POST_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
 // Get post
 export const getPost = id => async dispatch => {
   try {
@@ -113,6 +96,23 @@ export const getPost = id => async dispatch => {
 
     dispatch({
       type: GET_POST,
+      payload: res.data
+    });
+  } catch (err) {
+    dispatch({
+      type: POST_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
+// Get posts
+export const getPosts = () => async dispatch => {
+  try {
+    const res = await axios.get("/api/posts");
+
+    dispatch({
+      type: GET_POSTS,
       payload: res.data
     });
   } catch (err) {

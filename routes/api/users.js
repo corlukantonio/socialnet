@@ -14,10 +14,10 @@ const User = require("../../models/User");
 router.post(
   "/",
   [
-    check("name", "Molimo da unesete ime i prezime")
+    check("name", "Molimo unesite vaše ime i prezime")
       .not()
       .isEmpty(),
-    check("email", "Molimo da ispravno unesete email adresu").isEmail(),
+    check("email", "Molimo da ispravno unesete vašu email adresu").isEmail(),
     check(
       "password",
       "Molimo da unesete lozinku sa 6 ili više znakova"

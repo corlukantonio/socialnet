@@ -215,7 +215,7 @@ export const deleteAccount = () => async dispatch => {
 
       dispatch({ type: ACCOUNT_DELETED });
 
-      dispatch(setAlert("Vaš korisnički račun je izbrisan!"));
+      dispatch(setAlert("Vaš korisnički račun je izbrisan"));
     } catch (err) {
       dispatch({
         type: PROFILE_ERROR,

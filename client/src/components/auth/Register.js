@@ -95,7 +95,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         />
       </form>
       <p className='my-1'>
-        Imaš svoj korisnički račun? <Link to='/login'>Prijavi se</Link>
+        Već imaš svoj korisnički račun? <Link to='/login'>Prijavi se</Link>
       </p>
     </Fragment>
   );

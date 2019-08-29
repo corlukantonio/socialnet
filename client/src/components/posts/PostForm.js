@@ -7,12 +7,12 @@ const PostForm = ({ addPost }) => {
   const [text, setText] = useState("");
 
   return (
-    <div class='post-form'>
-      <div class='bg-primary p'>
+    <div className='post-form'>
+      <div className='bg-primary p'>
         <h3>Napiši nešto zanimljivo...</h3>
       </div>
       <form
-        class='form my-1'
+        className='form my-1'
         onSubmit={e => {
           e.preventDefault();
           addPost({ text });
@@ -28,7 +28,7 @@ const PostForm = ({ addPost }) => {
           onChange={e => setText(e.target.value)}
           required
         />
-        <input type='submit' class='btn btn-primary my-1' value='Spremi' />
+        <input type='submit' className='btn btn-primary my-1' value='Spremi' />
       </form>
     </div>
   );
