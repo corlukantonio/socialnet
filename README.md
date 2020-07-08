@@ -1,13 +1,13 @@
-# socialnet :wave:
+# socialnet
 
-## Description :book:
-"Socialnet" is the name of a project created as a simple software solution for my graduate work. The main purpose of the application is to create your own profile and find profiles of others. One of the functionalities that defines this social network as such is the ability to share text content with other users.
+## Description
+"Socialnet" is the name of the project created as a simple software solution for my graduate work. The main purpose of the application is to create your own profile and find profiles of others. One of the functionalities that defines this social network as such is the ability to share text content with other users.
 
-This repository can be logically divided in two parts:
-* **Server** :satellite: - web services are made here,
-* **Client** :computer: - graphically displays server responses.
+Repository is divided into two parts:
+* [**Server**](https://github.com/corlukantonio/socialnet/tree/master/client) - web services,
+* [**Client**](https://github.com/corlukantonio/socialnet) - graphical display of data.
 
-## How to run this? :checkered_flag:
+## How to run it?
 
 ### Installing node modules
 When done with git repository cloning, navigate to the socialnet and run next command to install **node modules** on the server:
