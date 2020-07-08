@@ -4,8 +4,8 @@
 "Socialnet" is the name of the project created as a simple software solution for my graduate work. The main purpose of the application is to create your own profile and find profiles of others. One of the functionalities that defines this social network as such is the ability to share text content with other users.
 
 Repository is divided into two parts:
-* [**Server**](https://github.com/corlukantonio/socialnet/tree/master/client) - web services,
-* [**Client**](https://github.com/corlukantonio/socialnet) - graphical display of data.
+* [**Server**](https://github.com/corlukantonio/socialnet) - web services,
+* [**Client**](https://github.com/corlukantonio/socialnet/tree/master/client) - graphical display of data.
 
 ## How to run it?
 
