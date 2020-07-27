@@ -4,8 +4,8 @@
 "Socialnet" is the name of the project created as a simple software solution for my graduate work. The main purpose of the application is to create your own profile and find profiles of others. One of the functionalities that defines this social network as such is the ability to share text content with other users.
 
 Repository is divided into two parts:
-* [**Server**](https://github.com/corlukantonio/socialnet) - web services,
-* [**Client**](https://github.com/corlukantonio/socialnet/tree/master/client) - graphical display of data.
+* [**Server**](https://github.com/corlukantonio/socialnet) - web services (Node.js, Express),
+* [**Client**](https://github.com/corlukantonio/socialnet/tree/master/client) - graphical display of data (React, Redux).
 
 ## How to run it?
 
@@ -26,7 +26,7 @@ $ npm install
 ```
 
 ### And finally, run it!
-Navigate to socialnet, and start the web application by typing:
+Navigate to the socialnet, and start the web application by typing:
 ```
 $ npm run dev
 ```
