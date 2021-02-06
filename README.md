@@ -13,6 +13,8 @@ Repository is divided into two parts:
 
 ## How to run it?
 
+Before you start doing any of the following, make sure you have [**Node.js**](https://nodejs.org) installed either on your computer or the server on which you're going to run the application.
+
 ### Installing node modules
 
 When done with git repository cloning, navigate to the socialnet and run next command to install **node modules** on the server:
