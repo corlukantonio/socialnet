@@ -1,6 +1,6 @@
 # socialnet
 
-[![Build Status](https://travis-ci.org/corlukantonio/socialnet.svg?branch=master)](https://travis-ci.org/corlukantonio/socialnet)
+[![Build Status](https://app.travis-ci.com/corlukantonio/socialnet.svg?branch=master)](https://app.travis-ci.com/corlukantonio/socialnet)
 
 ## Description
 
