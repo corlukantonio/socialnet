@@ -4,7 +4,7 @@
 
 ## Description
 
-"Socialnet" is the name of the project created as a simple software solution for my graduate work. The main purpose of the application is to create your own profile and find profiles of others. One of the functionalities that defines this social network as such is the ability to share text content with other users.
+**Socialnet** is the name of the project created as a simple software solution for my graduate work. The main purpose of the application is to create your own profile and find profiles of others. One of the functionalities that defines this social network as such is the ability to share text content with other users.
 
 Repository is divided into two parts:
 
@@ -19,26 +19,26 @@ Before you start doing any of the following, make sure you have [**Node.js**](ht
 
 When done with git repository cloning, navigate to the socialnet and run next command to install **node modules** on the server:
 
-```
-$ npm install
+```properties
+npm install
 ```
 
 After installing node modules on the server, navigate to client:
 
-```
-$ cd client/
+```properties
+cd client/
 ```
 
 Again, repeat the same to install **node modules** on the client:
 
-```
-$ npm install
+```properties
+npm install
 ```
 
 ### And finally, run it!
 
 Navigate to the socialnet, and start the web application by typing:
 
-```
-$ npm run dev
+```properties
+npm run dev
 ```
