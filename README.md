@@ -1,6 +1,7 @@
 # socialnet
 
 [![Build Status](https://app.travis-ci.com/corlukantonio/socialnet.svg?branch=master)](https://app.travis-ci.com/corlukantonio/socialnet)
+[![Coverage Status](https://coveralls.io/repos/github/corlukantonio/socialnet/badge.svg?branch=master)](https://coveralls.io/github/corlukantonio/socialnet?branch=master)
 
 ## Description
 
