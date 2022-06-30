@@ -22,7 +22,7 @@
     "express": "^4.17.1",
     "express-validator": "^6.9.2",
     "gravatar": "^1.8.1",
-    "jest": "^28.1.2",
+    "jest": "^26.6.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.16",
     "request": "^2.88.2"
