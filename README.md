@@ -14,7 +14,11 @@ Repository is divided into two parts:
 
 ## How to run it?
 
-Before you start doing any of the following, make sure you have [**Node.js**](https://nodejs.org) installed either on your computer or the server on which you're going to run the application.
+Before you start doing any of the following, make sure you have [**Node.js**](https://nodejs.org) installed either on your computer or the server on which you're going to run the application. You can easily check if you have it installed by executing:
+
+```properties
+node -h
+```
 
 ### Installing node modules
 
