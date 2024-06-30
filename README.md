@@ -3,6 +3,8 @@
 [![Build Status](https://app.travis-ci.com/corlukantonio/socialnet.svg?branch=master)](https://app.travis-ci.com/corlukantonio/socialnet)
 [![Coverage Status](https://coveralls.io/repos/github/corlukantonio/socialnet/badge.svg?branch=master)](https://coveralls.io/github/corlukantonio/socialnet?branch=master)
 
+Need to update build status badge...
+
 ## Description
 
 **Socialnet** is the name of the project created as a simple software solution for my graduate work. The main purpose of the application is to create your own profile and find profiles of others. One of the functionalities that defines this social network as such is the ability to share text content with other users.
